@@ -35,3 +35,55 @@ rfc9213_scheduler/
 │   └── main.c         # Test simulation
 ├── Makefile           # Automated build rules
 └── README.md
+🛠️ Build and Run
+To compile and run this project on your local machine, ensure you have gcc and make installed.
+1-Clone the repository:
+git clone [https://github.com/YOUR_USERNAME/rfc9213-scheduler.git](https://github.com/YOUR_USERNAME/rfc9213-scheduler.git)
+cd rfc9213-scheduler
+2-Compile the project:make
+3-Run the simulation:
+./rfc9213_scheduler
+📊 Sample Output & Test Scenario
+Complex requests with varying priorities are routed to the system and successfully sorted/processed via the Min-Heap logic. (Output from the simulation):
+=== RFC 9213 API Gateway Priority Request Scheduler ===
+
+--- Istekler Gateway'e Geliyor ---
+[Gateway] Istek alindi: ID=101 | Header: "(varsayilan)" -> (urgency=3, incremental=false)
+[Gateway] Istek alindi: ID=102 | Header: "u=5, i" -> (urgency=5, incremental=true)
+[Gateway] Istek alindi: ID=103 | Header: "u=0" -> (urgency=0, incremental=false)
+[Gateway] Istek alindi: ID=104 | Header: "i, u=1" -> (urgency=1, incremental=true)
+[Gateway] Istek alindi: ID=105 | Header: "u=3" -> (urgency=3, incremental=false)
+[Gateway] Istek alindi: ID=106 | Header: "invalid" -> (urgency=3, incremental=false)
+[Gateway] Istek alindi: ID=107 | Header: "u=0, i" -> (urgency=0, incremental=true)
+
+--- Istekler Isleniyor (Min-Heap Mantigi ile) ---
+[Scheduler] ISLENIYOR: ID=103 | Urgency=0 | Incremental=false | Gelis Sirasi(TS)=2
+[Scheduler] ISLENIYOR: ID=107 | Urgency=0 | Incremental=true | Gelis Sirasi(TS)=6
+[Scheduler] ISLENIYOR: ID=104 | Urgency=1 | Incremental=true | Gelis Sirasi(TS)=3
+[Scheduler] ISLENIYOR: ID=101 | Urgency=3 | Incremental=false | Gelis Sirasi(TS)=0
+[Scheduler] ISLENIYOR: ID=105 | Urgency=3 | Incremental=false | Gelis Sirasi(TS)=4
+[Scheduler] ISLENIYOR: ID=106 | Urgency=3 | Incremental=false | Gelis Sirasi(TS)=5
+[Scheduler] ISLENIYOR: ID=102 | Urgency=5 | Incremental=true | Gelis Sirasi(TS)=1
+
+Simulasyon basariyla tamamlandi. Bellek sizintisi yok.
+👨‍💻 Author
+Name: Berat [Your Last Name]
+
+University: Kirklareli University, Faculty of Engineering
+---
+
+### 3. İngilizce Git Commit Mesajları
+Kodlarını parçalar halinde gönderirken terminalde (veya GitHub Desktop'ta) kullanabileceğin profesyonel İngilizce commit mesajları:
+
+1. `git add include/request.h` 
+   * **Commit:** `feat: define Request struct and RFC 9213 parameters`
+2. `git add src/parser.c include/parser.h`
+   * **Commit:** `feat: add HTTP Priority header parser module`
+3. `git add src/heap.c include/heap.h`
+   * **Commit:** `feat: implement Min-Heap algorithm and compare_requests logic`
+4. `git add src/scheduler.c include/scheduler.h src/main.c`
+   * **Commit:** `feat: complete Scheduler interface and main test simulation`
+5. `git add Makefile README.md`
+   * **Commit:** `docs: add project documentation and Makefile`
+
+Bu dokümantasyonla birlikte projene bakan herhangi bir yabancı mühendis, sistem programlama ve veri yapıları konusundaki teknik yetkinliğini anında fark edecektir! Başka bir çeviri veya düzenleme istersen buradayım.
