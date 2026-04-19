@@ -1,55 +1,20 @@
-# Prerequisites
-*.d
-
-# Object files
+# C - Compiled Object Files
 *.o
-*.ko
 *.obj
-*.elf
-
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+obj/
 
 # Executables
 *.exe
 *.out
 *.app
-*.i*86
-*.x86_64
-*.hex
+rfc9213_scheduler
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+# Debug and Crash Logs
+*.core
+*.log
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
-
-# debug information files
-*.dwo
+# IDE and OS specific files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
